@@ -13,4 +13,7 @@ class BaseModule {
 
     @Provides
     fun getString(application: Application) = application.getString(R.string.app_name)
+
+    @Provides
+    fun getInt() = 5
 }
