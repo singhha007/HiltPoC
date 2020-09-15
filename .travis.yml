@@ -1,0 +1,29 @@
+language: android
+jdk:
+  - oraclejdk8
+
+branches:
+  only:
+    - master
+
+android:
+  components:
+    - tools
+    - build-tools-29.0.3
+    - android-29
+    - platform-tools
+    - extra-google-m2repository
+    - extra-android-m2repository
+    - extra-android-support
+  licenses:
+    - 'android-sdk-preview-license-52d11cd2'
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
+
+before_install:
+  - echo "Execution Type -" $TRAVIS_EVENT_TYPE
+  - chmod +x gradlew
+  - ./gradlew --version
+
+script:
+  - ./gradlew clean test build
